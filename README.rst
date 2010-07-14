@@ -8,7 +8,7 @@ Jinja2
 
 Jinja2 is supported via Coffin.
 
-::
+:
 	{% with paginate(request, my_queryset) as results %}
 	  {{ results.paging }}
 	  {% for result in results.objects %}
@@ -20,7 +20,7 @@ Jinja2 is supported via Coffin.
 Django
 ------
 
-::
+:
 	{% load paging %}
 	{% paginate my_queryset from request as results %}
 	{{ results.paging }}
