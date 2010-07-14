@@ -15,3 +15,15 @@ Jinja2 is supported via Coffin.
 	  {% endfor %}
 	  {{ results.paging }}
 	{% endwith %}
+
+Django
+------
+
+
+	{% load paging %}
+	{% paginate my_queryset from request as results %}
+	{{ results.paging }}
+	{% for result in results.objects %}
+	  {{ result }}
+	{% endfor %}
+	{{ results.paging }}
