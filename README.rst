@@ -21,7 +21,7 @@ Django
 
 Django templatetags require django-templatetag-sugar::
 
-	{% load paging %}
+	{% load paging_extras %}
 	
 	{% paginate my_queryset from request as results %}
 	{{ results.paging }}

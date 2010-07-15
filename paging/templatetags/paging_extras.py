@@ -23,7 +23,7 @@ if is_coffin:
         return dict(objects=context['paginator'].get('objects', []), paging=paging)
     register.object(paginate)
 
-@tag(register, [Variable('queryset_or_list'), Constant('from'), Variable('request'), Optional([Constant('as'), Name('asvar')]), Optional([Constant('per_page'), Variable('per_page')])]):
+@tag(register, [Variable('queryset_or_list'), Constant('from'), Variable('request'), Optional([Constant('as'), Name('asvar')]), Optional([Constant('per_page'), Variable('per_page')])])
 def paginate(context, queryset_or_list, request, asvar, per_page=25):
     """{% paginate queryset_or_list from request as foo[ per_page 25] %}"""
     context_instance = RequestContext(request)
