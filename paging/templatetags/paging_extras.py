@@ -1,4 +1,7 @@
 from paging.helpers import paginate as paginate_func
+
+from django import template
+from django.utils.safestring import mark_safe
 from django.template import RequestContext
 
 try:
@@ -9,7 +12,6 @@ try:
 except ImportError:
     is_coffin = False
 
-from django import template
 from templatetag_sugar.register import tag
 from templatetag_sugar.parser import Name, Variable, Constant, Optional, Model
 
@@ -26,11 +28,15 @@ if is_coffin:
 @tag(register, [Variable('queryset_or_list'), Constant('from'), Variable('request'), Optional([Constant('as'), Name('asvar')]), Optional([Constant('per_page'), Variable('per_page')])])
 def paginate(context, queryset_or_list, request, asvar, per_page=25):
     """{% paginate queryset_or_list from request as foo[ per_page 25] %}"""
-    context_instance = RequestContext(request)
-    _context = paginate_func(request, queryset_or_list, per_page)
-    paging = Markup(render_to_string('paging/pager.html', _context, context_instance))
     
-    result = dict(objects=context['paginator'].get('objects', []), paging=paging)
+    from django.template.loader import render_to_string
+
+    context_instance = RequestContext(request)
+    paging_context = paginate_func(request, queryset_or_list, per_page)
+    paging = mark_safe(render_to_string('paging/pager.html', paging_context, context_instance))
+    
+    result = dict(objects=paging_context['paginator'].get('objects', []), paging=paging)
     if asvar:
         context[asvar] = result
-    return result
+    else:
+        return result
