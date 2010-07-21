@@ -1,2 +1,3 @@
 include setup.py README.rst MANIFEST.in
+recursive-include paging/templates *
 global-exclude *~
