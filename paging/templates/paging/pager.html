@@ -6,7 +6,7 @@
 				<li class="paging-first">{% if not paginator.is_first %}<a href="?{{ query_string|escape }}&amp;p=1">First</a>{% else %}<span>First</span>{% endif %}</li>
 				<li class="paging-previous">{% if paginator.has_previous %}<a href="?{{ query_string|escape }}&amp;p={{ paginator.previous_page }}">Previous</a>{% else %}<span>Previous</span>{% endif %}</li>
 				{% for p in paginator.page_range %}
-					<li{% if p == paginator.page %} class="paging-current"{% endif %}><a href="?{{ query_string|escape }}&amp;p={{ p }}">{{ p }}</a></li>
+					<li{% ifequal p paginator.page %} class="paging-current"{% endifequal %}><a href="?{{ query_string|escape }}&amp;p={{ p }}">{{ p }}</a></li>
 				{% endfor %}
 				<li class="paging-next">{% if paginator.has_next %}<a href="?{{ query_string|escape }}&amp;p={{ paginator.next_page }}">Next</a>{% else %}<span>Next</span>{% endif %}</li>
 				{% if paginator.num_pages %}
