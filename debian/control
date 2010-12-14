@@ -1,9 +1,9 @@
 Source: python-django-paging
 Section: python
 Priority: optional
-Maintainer: Bruno Clermont <bruno.clermont@gmail.com>
-Homepage: https://github.com/bclermont/django-paging
-Bugs: https://github.com/bclermont/paging/issues
+Maintainer: David Cramer <dcramer@gmail.com>
+Homepage: https://github.com/dcramer/django-paging
+Bugs: https://github.com/dcramer/paging/issues
 Build-Depends: debhelper, python-support
 
 Package: python-django-paging
