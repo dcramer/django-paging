@@ -1,0 +1,5 @@
+python-django-paging (0.2.2-0) testing; urgency=low
+
+  * Initial Debian package
+
+ -- Bruno Clermont <bruno.clermont@gmail.com>  Tue, 14 Dec 2010 16:25:00 -0500

@@ -1,0 +1,13 @@
+Source: python-django-paging
+Section: python
+Priority: optional
+Maintainer: Bruno Clermont <bruno.clermont@gmail.com>
+Homepage: https://github.com/bclermont/django-paging
+Bugs: https://github.com/bclermont/paging/issues
+Build-Depends: debhelper, python-support
+
+Package: python-django-paging
+Architecture: all
+Depends: ${python:Depends}, python-support, python-django (>= 1.1.0)
+Provides: ${python:Provides}
+Description: A simple and efficient paginator.
