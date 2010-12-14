@@ -3,7 +3,7 @@ Section: python
 Priority: optional
 Maintainer: David Cramer <dcramer@gmail.com>
 Homepage: https://github.com/dcramer/django-paging
-Bugs: https://github.com/dcramer/paging/issues
+Bugs: https://github.com/dcramer/django-paging/issues
 Build-Depends: debhelper, python-support
 
 Package: python-django-paging
