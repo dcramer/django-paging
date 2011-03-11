@@ -25,14 +25,18 @@ if is_coffin:
         return dict(objects=context['paginator'].get('objects', []), paging=paging)
     register.object(paginate)
 
-@tag(register, [Variable('queryset_or_list'), Constant('from'), Variable('request'), Optional([Constant('as'), Name('asvar')]), Optional([Constant('per_page'), Variable('per_page')])])
-def paginate(context, queryset_or_list, request, asvar, per_page=25):
-    """{% paginate queryset_or_list from request as foo[ per_page 25] %}"""
+@tag(register, [Variable('queryset_or_list'),
+                Constant('from'), Variable('request'),
+                Optional([Constant('as'), Name('asvar')]),
+                Optional([Constant('per_page'), Variable('per_page')]),
+                Optional([Variable('is_endless')])])
+def paginate(context, queryset_or_list, request, asvar, per_page=25, is_endless=True):
+    """{% paginate queryset_or_list from request as foo[ per_page 25][ is_endless False %}"""
     
     from django.template.loader import render_to_string
 
     context_instance = RequestContext(request)
-    paging_context = paginate_func(request, queryset_or_list, per_page)
+    paging_context = paginate_func(request, queryset_or_list, per_page, endless=is_endless)
     paging = mark_safe(render_to_string('paging/pager.html', paging_context, context_instance))
 
     result = dict(objects=paging_context['paginator'].get('objects', []), paging=paging)
