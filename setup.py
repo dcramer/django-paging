@@ -9,6 +9,7 @@ setup(
     author_email='dcramer@gmail.com',
     url='http://github.com/dcramer/django-paging',
     install_requires=[
+        'django',
         'django-templatetag-sugar>=0.1',
     ],
     description = 'An efficient paginator that works.',
