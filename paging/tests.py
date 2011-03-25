@@ -3,6 +3,17 @@ import unittest2
 from paging.helpers import paginate
 from paging.paginators import *
 
+from django.conf import settings
+
+if not settings.configured:
+    settings.configure(
+        DATABASE_ENGINE='sqlite3',
+        INSTALLED_APPS=[
+            'django.contrib.contenttypes',
+            'paging',
+        ]
+    )
+
 class PagingUnitTest(unittest2.TestCase):
     def test_better_paginator(self):
         objects = range(1, 100)
