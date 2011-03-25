@@ -2,6 +2,11 @@
 
 from setuptools import setup, find_packages
 
+tests_require = [
+    'unittest2',
+    'django',
+]
+
 setup(
     name='django-paging',
     version=".".join(map(str, __import__('paging').__version__)),
@@ -11,10 +16,8 @@ setup(
     install_requires=[
         'django-templatetag-sugar>=0.1',
     ],
-    tests_require=[
-        'unittest2',
-        'django',
-    ],
+    tests_require=tests_require,
+    extras_require={'test': tests_require},
     test_suite='unittest2.collector',
     description = 'An efficient paginator that works.',
     packages=find_packages(),
