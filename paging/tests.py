@@ -1,9 +1,9 @@
-import unittest
+import unittest2
 
 from paging.helpers import paginate
 from paging.paginators import *
 
-class PagingUnitTest(unittest.TestCase):
+class PagingUnitTest(unittest2.TestCase):
     def test_better_paginator(self):
         objects = range(1, 100)
         
