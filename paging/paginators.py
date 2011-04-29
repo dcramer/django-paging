@@ -70,10 +70,10 @@ class EndlessPaginator(BetterPaginator):
         bottom = (number - 1) * self.per_page
         top = bottom + self.per_page + 5
         try:
-            _page = EndlessPage(self.object_list[bottom:top], number, self)
+            _page = EndlessPage(list(self.object_list[bottom:top]), number, self)
         except AssertionError:
             top = top - 5
-            _page = EndlessPage(self.object_list[bottom:top], number, self)
+            _page = EndlessPage(list(self.object_list[bottom:top]), number, self)
 
         if not _page.object_list:
             if number == 1 and self.allow_empty_first_page:
