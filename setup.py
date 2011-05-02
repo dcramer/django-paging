@@ -9,7 +9,7 @@ tests_require = [
 
 setup(
     name='django-paging',
-    version=".".join(map(str, __import__('paging').__version__)),
+    version='0.2.4',
     author='David Cramer',
     author_email='dcramer@gmail.com',
     url='http://github.com/dcramer/django-paging',
