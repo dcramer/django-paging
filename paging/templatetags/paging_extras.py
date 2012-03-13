@@ -39,7 +39,8 @@ def paginate(context, queryset_or_list, request, asvar, per_page=25, is_endless=
     paging_context = paginate_func(request, queryset_or_list, per_page, endless=is_endless)
     paging = mark_safe(render_to_string('paging/pager.html', paging_context, context_instance))
 
-    result = dict(objects=paging_context['paginator'].get('objects', []), paging=paging, paginator=paging_context['paginator'])
+    result = dict(objects=paging_context['paginator'].get('objects', []),
+				  paging=paging, paginator=paging_context['paginator'])
     if asvar:
         context[asvar] = result
         return ''
