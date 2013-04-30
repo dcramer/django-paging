@@ -44,7 +44,7 @@ class BetterPaginator(Paginator):
             'has_previous': paginator.has_previous(),
             'has_next': paginator.has_next(),
             'previous_page': paginator.previous_page_number() if paginator.has_previous() else None,
-            'next_page': paginator.next_page_number() if paginator.has_previous() else None,
+            'next_page': paginator.next_page_number() if paginator.has_next() else None,
             'is_first': page == 1,
             'is_last': page == self.num_pages,
         }
@@ -94,7 +94,7 @@ class EndlessPaginator(BetterPaginator):
             'has_previous': paginator.has_previous(),
             'has_next': paginator.has_next(),
             'previous_page': paginator.previous_page_number() if paginator.has_previous() else None,
-            'next_page': paginator.next_page_number() if paginator.has_previous() else None,
+            'next_page': paginator.next_page_number() if paginator.has_next() else None,
             'is_first': page == 1,
             'has_pages': paginator.has_next() or paginator.has_previous(),
             'is_last': not paginator.has_next(),
