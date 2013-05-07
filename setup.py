@@ -9,7 +9,7 @@ tests_require = [
 
 setup(
     name='django-paging',
-    version='0.2.4',
+    version='0.2.5',
     author='David Cramer',
     author_email='dcramer@gmail.com',
     url='http://github.com/dcramer/django-paging',
@@ -19,7 +19,7 @@ setup(
     tests_require=tests_require,
     extras_require={'test': tests_require},
     test_suite='unittest2.collector',
-    description = 'An efficient paginator that works.',
+    description='An efficient paginator that works.',
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
